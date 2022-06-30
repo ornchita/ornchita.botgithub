@@ -568,6 +568,7 @@ else if($_REQUEST['act'] == 'r'){
 
 else if($_REQUEST['act'] == 'd'){
  // A sample PHP Script to POST data using cURL
+ echo $_REQUEST['id'];
   ///*1
   $data = array(
       'dataSource' => 'Clusterpwa',
