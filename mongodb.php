@@ -138,7 +138,6 @@ else if($_REQUEST['act'] == 'qm'){
       'database' => 'pwa',
       'collection' => 'gis',
       'filter'=> array( 'act' => 'a' ),
-      'filter'=> array( '_id' => $_REQUEST['id'] )  
       'sort'=> array( "meterno" => 1 ),
       'limit' => 1000
       //'filter'=> array( '_id' => '5e7e14555d0e655ff451c574' ),
