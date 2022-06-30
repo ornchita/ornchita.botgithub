@@ -568,15 +568,13 @@ else if($_REQUEST['act'] == 'r'){
 
 else if($_REQUEST['act'] == 'd'){
  // A sample PHP Script to POST data using cURL
- echo $_REQUEST['id'];
+ //echo $_REQUEST['id'];
   ///*1
   $data = array(
       'dataSource' => 'Clusterpwa',
       'database' => 'pwa',
       'collection' => 'gis',
-      'filter'=> array( '_id' => $_REQUEST['id'] )     
-
-
+      'filter'=> array( '_id' =>  array("$oid":  $_REQUEST['id'] ) )     
   );
   $post_data = json_encode($data);
   //*/
@@ -629,15 +627,14 @@ else if($_REQUEST['act'] == 'd'){
 
 }
 else if($_REQUEST['act'] == 'dm'){
+	
  // A sample PHP Script to POST data using cURL
   ///*1
   $data = array(
       'dataSource' => 'Clusterpwa',
       'database' => 'pwa',
       'collection' => 'gis',
-      'filter'=> array( '_id' => '62ba778ccbdcad1b8a35fcf5' )   
-
-
+      'filter'=> array( $_REQUEST['key1'] => $_REQUEST['value1'], $_REQUEST['key2'] => $_REQUEST['value2'] )   
   );
   $post_data = json_encode($data);
   //*/
