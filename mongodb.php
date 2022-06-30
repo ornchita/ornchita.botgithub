@@ -635,7 +635,7 @@ else if($_REQUEST['act'] == 'dm'){
       'dataSource' => 'Clusterpwa',
       'database' => 'pwa',
       'collection' => 'gis',
-      'filter'=> array( 'name' => 'nut' )   
+      'filter'=> array( '_id' => '62ba778ccbdcad1b8a35fcf5' )   
 
 
   );
