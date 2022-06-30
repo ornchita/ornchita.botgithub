@@ -574,7 +574,7 @@ else if($_REQUEST['act'] == 'd'){
       'dataSource' => 'Clusterpwa',
       'database' => 'pwa',
       'collection' => 'gis',
-      'filter'=> array( '_id' =>  array("$oid":  $_REQUEST['id'] ) )     
+      'filter'=> array( '_id' =>  array("$oid" => $_REQUEST['id'] ) )     
   );
   $post_data = json_encode($data);
   //*/
