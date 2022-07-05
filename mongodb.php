@@ -382,7 +382,7 @@ else if($_REQUEST['act'] == 'e'){
       'database' => 'pwa',
       'collection' => 'gis',
       'filter'=> array( '_id' =>  array( '$oid' => $_REQUEST['id']) ),   
-      'update'=> array('$set' => array( 'lat' => $_REQUEST['lat'], 'lng' => $_REQUEST['lng'] ),
+      'update'=> array('$set' => array( 'lat' => $_REQUEST['lat'], 'lng' => $_REQUEST['lng'] )),
       "upsert"=> false,
 
       //upsert true ถ้าไม่เจอเงื่อนไขนี้จะ insert เพิ่มให้ใหม่  );
