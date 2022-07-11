@@ -824,17 +824,382 @@ function replyMsg($event, $client)
 
 				else if (preg_match('(#ติดตาม|ติดตามสถานะ)', $msg) === 1) {
 
-						$a = array(
-									array(
-										'type' => 'text',
-										'text' => 'text'			
-									),
+					$content = '{
+					  "type": "bubble",
+					  "size": "mega",
+					  "header": {
+						"type": "box",
+						"layout": "vertical",
+						"contents": [
+						  {
+							"type": "box",
+							"layout": "vertical",
+							"contents": [
+							  {
+								"type": "text",
+								"text": "เลขคำขอ",
+								"color": "#ffffff99",
+								"size": "sm"
+							  },
+							  {
+								"type": "text",
+								"text": "Q65070800001",
+								"color": "#ffffff",
+								"size": "xl",
+								"flex": 4,
+								"weight": "bold"
+							  }
+							]
+						  }
+						],
+						"paddingAll": "20px",
+						"backgroundColor": "#0367D3",
+						"spacing": "md",
+						"height": "80px",
+						"paddingTop": "22px"
+					  },
+					  "body": {
+						"type": "box",
+						"layout": "vertical",
+						"contents": [
+						  {
+							"type": "text",
+							"text": "สถานะการให้บริการข้อมูล GIS",
+							"color": "#0367D3",
+							"size": "md",
+							"style": "italic",
+							"weight": "bold"
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "text",
+								"text": "08 ก.ค. 65",
+								"size": "xs",
+								"gravity": "center",
+								"flex": 1
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "filler"
+								  },
+								  {
+									"type": "box",
+									"layout": "vertical",
+									"contents": [],
+									"cornerRadius": "30px",
+									"height": "12px",
+									"width": "12px",
+									"borderColor": "#EF454D",
+									"borderWidth": "2px"
+								  },
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 0
+							  },
+							  {
+								"type": "text",
+								"text": "รับคำขอ",
+								"gravity": "center",
+								"flex": 2,
+								"size": "sm",
+								"align": "start"
+							  }
+							],
+							"spacing": "lg",
+							"cornerRadius": "30px",
+							"margin": "xl"
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "box",
+								"layout": "baseline",
+								"contents": [
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 2
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "box",
+									"layout": "horizontal",
+									"contents": [
+									  {
+										"type": "filler"
+									  },
+									  {
+										"type": "box",
+										"layout": "vertical",
+										"contents": [],
+										"width": "2px",
+										"backgroundColor": "#B7B7B7"
+									  },
+									  {
+										"type": "filler"
+									  }
+									],
+									"flex": 1
+								  }
+								],
+								"width": "12px"
+							  },
+							  {
+								"type": "text",
+								"text": "กนกวรรณ",
+								"gravity": "center",
+								"flex": 4,
+								"size": "xs",
+								"color": "#8c8c8c"
+							  }
+							],
+							"spacing": "lg",
+							"height": "30px"
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "box",
+								"layout": "horizontal",
+								"contents": [
+								  {
+									"type": "text",
+									"text": "09 ก.ค. 65",
+									"gravity": "center",
+									"size": "xs",
+									"flex": 1
+								  }
+								],
+								"flex": 1
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "filler"
+								  },
+								  {
+									"type": "box",
+									"layout": "vertical",
+									"contents": [],
+									"cornerRadius": "30px",
+									"width": "12px",
+									"height": "12px",
+									"borderWidth": "2px",
+									"borderColor": "#6486E3"
+								  },
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 0
+							  },
+							  {
+								"type": "text",
+								"text": "อยู่ระหว่างดำเนินการ",
+								"gravity": "center",
+								"flex": 2,
+								"size": "sm",
+								"align": "start"
+							  }
+							],
+							"spacing": "lg",
+							"cornerRadius": "30px",
+							"margin": "xl"
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "box",
+								"layout": "baseline",
+								"contents": [
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 2
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "box",
+									"layout": "horizontal",
+									"contents": [
+									  {
+										"type": "filler"
+									  },
+									  {
+										"type": "box",
+										"layout": "vertical",
+										"contents": [],
+										"width": "2px",
+										"backgroundColor": "#6486E3"
+									  },
+									  {
+										"type": "filler"
+									  }
+									],
+									"flex": 1
+								  }
+								],
+								"width": "12px"
+							  },
+							  {
+								"type": "text",
+								"text": "พิมาน",
+								"gravity": "center",
+								"flex": 4,
+								"size": "xs",
+								"color": "#8c8c8c"
+							  }
+							],
+							"spacing": "lg",
+							"height": "30px"
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "text",
+								"text": "11 ก.ค. 65",
+								"gravity": "center",
+								"size": "xs"
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "filler"
+								  },
+								  {
+									"type": "box",
+									"layout": "vertical",
+									"contents": [],
+									"cornerRadius": "30px",
+									"width": "12px",
+									"height": "12px",
+									"borderColor": "#008000",
+									"borderWidth": "2px"
+								  },
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 0
+							  },
+							  {
+								"type": "text",
+								"text": "ดำเนินการแล้วเสร็จ",
+								"gravity": "center",
+								"flex": 2,
+								"size": "sm"
+							  }
+							],
+							"spacing": "lg",
+							"cornerRadius": "30px",
+							"margin": "xl",
+							"flex": 1
+						  },
+						  {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+							  {
+								"type": "box",
+								"layout": "baseline",
+								"contents": [
+								  {
+									"type": "filler"
+								  }
+								],
+								"flex": 2
+							  },
+							  {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+								  {
+									"type": "box",
+									"layout": "horizontal",
+									"contents": [
+									  {
+										"type": "filler"
+									  },
+									  {
+										"type": "box",
+										"layout": "vertical",
+										"contents": [],
+										"width": "2px",
+										"backgroundColor": "#008000"
+									  },
+									  {
+										"type": "filler"
+									  }
+									],
+									"flex": 1
+								  }
+								],
+								"width": "12px"
+							  },
+							  {
+								"type": "text",
+								"text": "กนกวรรณ",
+								"gravity": "center",
+								"flex": 4,
+								"size": "xs",
+								"color": "#8c8c8c"
+							  }
+							],
+							"spacing": "lg",
+							"height": "30px"
+						  }
+						]
+					  }
+					}';
+					$content =json_decode($content);
+					$a = array(
+								/*array(
+									'type' => 'text',
+									'text' => $city.$temp.$aqi.$icon.$level.$face			
+								),*/
 
-										
-												
-						);
-						$client->replyMessage1($event['replyToken'],$a);
-				}
+								array(
+									'type' => 'flex',
+									'altText' => 'monitor',
+									'contents'=> $content
+
+								)
+											
+					);
+					$client->replyMessage1($event['replyToken'],$a);
+
+		}
+
+
+
 
                 else{
 					/*
