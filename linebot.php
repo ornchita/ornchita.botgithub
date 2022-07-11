@@ -64,9 +64,9 @@ function get_profile($fullurl)
 
 //-----------auto send----push message------------------//
 
-if ( $_GET['send'] == 'hbd' )
+if ( $_GET['send'] == 'noti' )
 {
-	//hbd();
+	//send_noti();
 }
 //----
 
@@ -417,7 +417,7 @@ function replyMsg1($event, $client)
 		$a = array(
 					array(
 						'type' => 'text',
-						'text' => 'ขอบคุณที่รับผมเข้ากลุ่มครับ'            
+						'text' => 'ขอบคุณที่เชิญเข้ากลุ่มจ้า'            
 					)
 				);
 		$client->replyMessage1($event['replyToken'],$a);
@@ -427,7 +427,7 @@ function replyMsg1($event, $client)
 		$a = array(
 					array(
 						'type' => 'text',
-						'text' => 'โดนถีบออกจากกลุ่ม'            
+						'text' => 'ถูกออกจากกลุ่ม'            
 					)
 				);
 		$client->replyMessage1($event['replyToken'],$a);
@@ -520,58 +520,6 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
  	
-
-                else if (preg_match('(ขี้|อึ|ห้องน้ำ)', $msg) === 1) {
- 
-                    $a = array(
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => 1,
-                                    'stickerId' => 115
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-
-                else if (preg_match('(นอนละ|ไปนอน|นอนแล้ว|ฝันดี)', $msg) === 1) {
- 
-                    $a = array(
-                                array(
-                                    'type' => 'sticker',
-                                    'packageId' => 3,
-                                    'stickerId' => 239
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
- 
-                }
- 
-	    
-                else if (preg_match('(ด่า|เลว|นิสัยไม่ดี|โดนว่า|น่าเบื่อ|รำคาญ|ชั่ว|สันดาน|บ่น|ถูกว่า)', $msg) === 1) {
- 
-                    $t = 'การบ่นไม่ใช่การแก้ปัญหา และ การด่าก็ไม่ใช่วิธีการแก้ไข';  
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $t . ''               
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
-
-                else if (preg_match('(ทำงาน|ทำแต่งาน|ทำงานอยู่|เอาแต่ทำงาน|พี่ทำงาน|พี่นัททำแต่งาน|พี่นัททำงาน)', $msg) === 1) {
- 
-                    $t=array("สมน้ำหน้า...โดนอายทิ้ง","เข็ดยังล่ะ...หึหึ","ทำงานไปจนตายเลยมึง");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt          
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
  			
 			
                 else if (preg_match('(น่ารัก|น่ารักนะ|น่ารักจัง)', $msg) === 1) {
@@ -588,20 +536,6 @@ function replyMsg($event, $client)
                     $client->replyMessage1($event['replyToken'],$a);
                 }
  
-
-                else if (preg_match('(เหงา|เหงาจัง|เหงาอ่ะ)', $msg) === 1) {
- 
-                    $t=array("เราพร้อมจะเป็นเพื่อนคุณนะ","เหงาเหมือนกันเลย","ให้ช่วยแก้เหงามั้ย");
-                    $random_keys=array_rand($t,1);
-                    $txt = $t[$random_keys];
-                    $a = array(
-                                array(
-                                    'type' => 'text',
-                                    'text' => $txt          
-                                )
-                            );
-                    $client->replyMessage1($event['replyToken'],$a);
-                }
  
 				else if (preg_match('(#ดุ๊กดิ๊ก|#ดุ้กดิ้ก|#ดุกดิก|#ดุ๊กดิ้ก|#ดุ้กดิ๊ก)', $msg) === 1) {
 
@@ -838,9 +772,9 @@ function replyMsg($event, $client)
 					
 					$message = '';
 					$memo_=array(
-						"29-05-2020"=>"เงินเดือนออกนะครับ (29 ธ.ค. 63) ",
-						"01-06-2020"=>"อย่าลืมมาทำงานกันนะครับ (1 มิ.ย. 63) ",
-
+						"13-07-2022"=>"ได้หยุดเสียที (13 ก.ค. 65) ",
+						"14-07-2022"=>"นี่ก็หยุด (14 ก.ค. 65) ",
+						"15-07-2022"=>"สุขไหนจะสุขเท่าศุกร์นี้ (15 ก.ค. 65) ",
 					);				
 
 					$today_ = date("d-m-Y");
@@ -887,16 +821,759 @@ function replyMsg($event, $client)
 				}
 
 
+
+				else if (preg_match('(#ติดตาม|#ติดตาม)', $msg) === 1) {
+
+						$a = array(
+									/*array(
+										'type' => 'text',
+										'text' => $city.$temp.$aqi.$icon.$level.$face			
+									),*/
+
+										/*
+										array(
+											'type' => 'flex',
+											'altText' => 'monitor',
+											'contents'=> array(
+														  "type"=> "bubble",
+														  "size"=> "mega",
+														  "header"=> array(
+														    "type"=> "box",
+														    "layout"=> "vertical",
+														    "contents"=> array(
+														      array(
+														        "type"=> "box",
+														        "layout"=> "vertical",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "เลขคำขอ",
+														            "color"=> "#ffffff99",
+														            "size"=> "sm"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "Q65070800001",
+														            "color"=> "#ffffff",
+														            "size"=> "xl",
+														            "flex"=> 4,
+														            "weight"=> "bold"
+														          )
+														        )
+														      )
+														    ),
+														    "paddingAll"=> "20px",
+														    "backgroundColor"=> "#0367D3",
+														    "spacing"=> "md",
+														    "height"=> "80px",
+														    "paddingTop"=> "22px"
+														  ),
+														  /*
+														  "body"=> array(
+														    "type"=> "box",
+														    "layout"=> "vertical",
+														    "contents"=> array(
+														      array(
+														        "type"=> "text",
+														        "text"=> "สถานะการให้บริการข้อมูล GIS",
+														        "color"=> "#0367D3",
+														        "size"=> "md",
+														        "style"=> "italic",
+														        "weight"=> "bold"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "08 ก.ค. 65",
+														            "size"=> "xs",
+														            "gravity"=> "center",
+														            "flex"=> 1
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "height"=> "12px",
+														                "width"=> "12px",
+														                "borderColor"=> "#EF454D",
+														                "borderWidth"=> "2px"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "รับคำขอ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm",
+														            "align"=> "start"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#B7B7B7"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "กนกวรรณ",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "horizontal",
+														            "contents"=> array(
+														              array(
+														                "type"=> "text",
+														                "text"=> "09 ก.ค. 65",
+														                "gravity"=> "center",
+														                "size"=> "xs",
+														                "flex"=> 1
+														              )
+														            ),
+														            "flex"=> 1
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "width"=> "12px",
+														                "height"=> "12px",
+														                "borderWidth"=> "2px",
+														                "borderColor"=> "#6486E3"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "อยู่ระหว่างดำเนินการ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm",
+														            "align"=> "start"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#6486E3"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "พิมาน",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "11 ก.ค. 65",
+														            "gravity"=> "center",
+														            "size"=> "xs"
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "width"=> "12px",
+														                "height"=> "12px",
+														                "borderColor"=> "#008000",
+														                "borderWidth"=> "2px"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "ดำเนินการแล้วเสร็จ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl",
+														        "flex"=> 1
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#008000"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "กนกวรรณ",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      )
+														    )
+														  )
+														  */
+														)
+											
+										
+											)
+										)
+										/*
+										array(
+											'type' => 'flex',
+											'altText' => 'monitor',
+											'contents'=> array(
+														  "type"=> "bubble",
+														  "size"=> "mega",
+														  "header"=> array(
+														    "type"=> "box",
+														    "layout"=> "vertical",
+														    "contents"=> array(
+														      array(
+														        "type"=> "box",
+														        "layout"=> "vertical",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "เลขคำขอ",
+														            "color"=> "#ffffff99",
+														            "size"=> "sm"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "Q65070800001",
+														            "color"=> "#ffffff",
+														            "size"=> "xl",
+														            "flex"=> 4,
+														            "weight"=> "bold"
+														          )
+														        )
+														      )
+														    ),
+														    "paddingAll"=> "20px",
+														    "backgroundColor"=> "#0367D3",
+														    "spacing"=> "md",
+														    "height"=> "80px",
+														    "paddingTop"=> "22px"
+														  ),
+														  "body"=> array(
+														    "type"=> "box",
+														    "layout"=> "vertical",
+														    "contents"=> array(
+														      array(
+														        "type"=> "text",
+														        "text"=> "สถานะการให้บริการข้อมูล GIS",
+														        "color"=> "#0367D3",
+														        "size"=> "md",
+														        "style"=> "italic",
+														        "weight"=> "bold"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "08 ก.ค. 65",
+														            "size"=> "xs",
+														            "gravity"=> "center",
+														            "flex"=> 1
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "height"=> "12px",
+														                "width"=> "12px",
+														                "borderColor"=> "#EF454D",
+														                "borderWidth"=> "2px"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "รับคำขอ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm",
+														            "align"=> "start"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#B7B7B7"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "กนกวรรณ",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "horizontal",
+														            "contents"=> array(
+														              array(
+														                "type"=> "text",
+														                "text"=> "09 ก.ค. 65",
+														                "gravity"=> "center",
+														                "size"=> "xs",
+														                "flex"=> 1
+														              )
+														            ),
+														            "flex"=> 1
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "width"=> "12px",
+														                "height"=> "12px",
+														                "borderWidth"=> "2px",
+														                "borderColor"=> "#6486E3"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "อยู่ระหว่างดำเนินการ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm",
+														            "align"=> "start"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#6486E3"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "พิมาน",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "text",
+														            "text"=> "11 ก.ค. 65",
+														            "gravity"=> "center",
+														            "size"=> "xs"
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              ),
+														              array(
+														                "type"=> "box",
+														                "layout"=> "vertical",
+														                "contents"=> array(),
+														                "cornerRadius"=> "30px",
+														                "width"=> "12px",
+														                "height"=> "12px",
+														                "borderColor"=> "#008000",
+														                "borderWidth"=> "2px"
+														              ),
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 0
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "ดำเนินการแล้วเสร็จ",
+														            "gravity"=> "center",
+														            "flex"=> 2,
+														            "size"=> "sm"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "cornerRadius"=> "30px",
+														        "margin"=> "xl",
+														        "flex"=> 1
+														      ),
+														      array(
+														        "type"=> "box",
+														        "layout"=> "horizontal",
+														        "contents"=> array(
+														          array(
+														            "type"=> "box",
+														            "layout"=> "baseline",
+														            "contents"=> array(
+														              array(
+														                "type"=> "filler"
+														              )
+														            ),
+														            "flex"=> 2
+														          ),
+														          array(
+														            "type"=> "box",
+														            "layout"=> "vertical",
+														            "contents"=> array(
+														              array(
+														                "type"=> "box",
+														                "layout"=> "horizontal",
+														                "contents"=> array(
+														                  array(
+														                    "type"=> "filler"
+														                  ),
+														                  array(
+														                    "type"=> "box",
+														                    "layout"=> "vertical",
+														                    "contents"=> array(),
+														                    "width"=> "2px",
+														                    "backgroundColor"=> "#008000"
+														                  ),
+														                  array(
+														                    "type"=> "filler"
+														                  )
+														                ),
+														                "flex"=> 1
+														              )
+														            ),
+														            "width"=> "12px"
+														          ),
+														          array(
+														            "type"=> "text",
+														            "text"=> "กนกวรรณ",
+														            "gravity"=> "center",
+														            "flex"=> 4,
+														            "size"=> "xs",
+														            "color"=> "#8c8c8c"
+														          )
+														        ),
+														        "spacing"=> "lg",
+														        "height"=> "30px"
+														      )
+														    )
+														  )
+														)
+											
+										
+											)
+										)
+										*/
+												
+						);
+						$client->replyMessage1($event['replyToken'],$a);
+				}
+
                 else{
-			
+					/*
 				    $a = array(
 					array(
 					    'type' => 'text',
-					    'text' => "lll"         
+					    'text' => "---"         
 					)
 				    );
 				    $client->replyMessage1($event['replyToken'],$a);
-
+					*/
 				}
 
 			
@@ -906,34 +1583,11 @@ function replyMsg($event, $client)
     elseif ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 
 		$message = $event['message'];
-		//$url = $_SERVER['HTTP_HOST'];
-		 
 		//$imagepath = 'img/';  
 		$imagename = 'img_'.date('Ymdhis').'.jpg';
 		$imageData = $client->getImage($event['message']['id']);
 		//$save_result = file_put_contents($imagepath.$imagename, $imageData);
 		
-	    $fullurl = "https://www.googleapis.com/upload/drive/v3/files?uploadType=media";
-
-	    $header = array(
-		"Content-Type: image/jpeg",
-		"Authorization: Bearer ya29.a0AfH6SMDXKeG1SgkZKc-fBXmsC6L4MDdDns0zSP-ev4BnXNIv96SHV2zPqZfG6YIB60x-PykuSZRDN1XDABL5ze0COP41T-ks4vEa46aHZqoVpXeGYF9emTigVCraAVz2uPkqaobeXqZ_eE4q5IyVyzL6sD3qwAs12mLcv7jg2xg",	    
-	    );
-
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_VERBOSE, 1);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);      
-		curl_setopt($ch, CURLOPT_FAILONERROR, 0);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-		curl_setopt($ch, CURLOPT_POSTFIELDS,  $imageData ); 	    
-		curl_setopt($ch, CURLOPT_URL, $fullurl);
-
-		$returned =  curl_exec($ch);
-		curl_close($ch);
-
 		
         $client->replyMessage1($event['replyToken'],array(
                 array(
@@ -968,7 +1622,7 @@ function replyMsg($event, $client)
 			}
 		*/
 
-	    	$text_=implode(" ",$event['message']['contentProvider']);
+	    $text_=implode(" ",$event['message']['contentProvider']);
 	    
 		$sticker=array("2,149","2,23","3,239","2,154","2,161","3,232","2,24","1,115","2,152","4,616","4,296","2,165","4,279","2,525","2,19","2,527");
 		$random_keys=array_rand($sticker,1);
@@ -1048,7 +1702,6 @@ function replyMsg($event, $client)
         $address = $event['message']['address'];
  
                $client->replyMessage1($event['replyToken'],array(
- 
  
                         array(
                                 'type' => 'text',
